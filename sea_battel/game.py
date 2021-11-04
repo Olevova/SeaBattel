@@ -1,7 +1,7 @@
 #импортирем классы для создания класса самой игры
 import random
 import time
-
+from ship import Ship
 from player import *
 from sea_battel import Board
 
