@@ -32,16 +32,20 @@ class Game():#класс самой игры, то место где все ск
         board = Board()
         print("Please add ship ")
         for l in lens:
-            print(l)
-            a = input("input Point of the ship nose :").split()
-            b = input("ship position 0 -vertical, 1 Horizont :")
-            ship = Ship(l, Point(int(a[0])-1, int(a[1])-1), int(b))
-            try:
-                board.ship_plus(ship)
-                print(board.field)
-            except BoardBusyException as e:
-                print (e)
-            print(board)
+            while True:
+                print(l)
+                a = input("input Point of the ship nose :").split()
+                b = input("ship position 0 -vertical, 1 Horizont :")
+                ship = Ship(l, Point(int(a[0])-1, int(a[1])-1), int(b))
+                try:
+                    board.ship_plus(ship)
+                    print(board.field)
+                    break
+                except BoardBusyException as e:
+                    print(e)
+                except BoardOutException as e:
+                    print(e)
+                print(board)
         board.begin()
         return board
 
